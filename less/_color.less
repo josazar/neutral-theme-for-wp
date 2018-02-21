@@ -1,0 +1,27 @@
+@main_color: #3c3c3a;
+@bg_color: #ffffff;
+
+
+body {
+  color: @main_color;
+	background-color: @bg_color;
+}
+/* Base links */
+a {
+	color: @main_color;
+}
+a:hover {
+	color: @main_color;
+}
+// Textes clair
+.section-intro p {
+  color: #ffffff;
+}
+
+
+// Background Orange dégradé
+.bg-gradient {
+    background: -moz-linear-gradient(left, rgba(246,179,25,1) 0%, rgba(245,151,29,1) 48%, rgba(243,115,60,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(246,179,25,1) 0%,rgba(245,151,29,1) 48%,rgba(243,115,60,1) 100%);
+    background: linear-gradient(to right, rgba(246,179,25,1) 0%,rgba(245,151,29,1) 48%,rgba(243,115,60,1) 100%);
+}
