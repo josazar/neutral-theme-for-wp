@@ -15,7 +15,7 @@
  	// Loads our main stylesheet
  	wp_enqueue_style( 'neutral-style', get_template_directory_uri() . '/assets/css/main.css', false, '1.0', 'screen');
 
- 	// on ajoute jQuery
+ 	// add Jquery
  	wp_enqueue_script("jquery");
 
  	// JS PRINCIPAL APP.JS
