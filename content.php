@@ -2,8 +2,6 @@
 /**
  * The default template for displaying content
  *
- * @package WordPress
- * @subpackage neutral
  */
 ?>
 
