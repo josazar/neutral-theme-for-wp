@@ -54,8 +54,6 @@ function neutral_widgets_init() {
 }
 add_action( 'widgets_init', 'neutral_widgets_init' );
 
-
-
 /**
  * Remove EMOJI Script
  */
