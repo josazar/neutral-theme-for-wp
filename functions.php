@@ -13,13 +13,13 @@
  function neutral_scripts_styles()
  {
  	// Loads our main stylesheet
- 	wp_enqueue_style( 'neutral-style', get_template_directory_uri() . '/assets/css/main.css', false, '1.0', 'screen');
+ 	wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/main.css', false, '1.0', 'screen');
 
  	// add Jquery
  	wp_enqueue_script("jquery");
 
- 	// JS PRINCIPAL APP.JS
- 	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/assets/js/app.js', array( 'jquery' ), '1', true );
+ 	// JS PRINCIPAL APP-dist.JS
+ 	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/assets/js/app-dist.js', array( 'jquery' ), '1', true );
  }
  add_action( 'wp_enqueue_scripts', 'neutral_scripts_styles' );
 

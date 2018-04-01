@@ -16,7 +16,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<nav class="nav">
+	<nav class="nav wrapper">
 		<?php
 		wp_nav_menu( array(
 			'theme_location' => 'top',

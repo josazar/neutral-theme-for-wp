@@ -5,6 +5,7 @@
  */
 ?>
 	<footer class="footer">
+	
 	</footer>
 </div><!-- .main -->
 <?php wp_footer(); ?>
