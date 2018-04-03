@@ -1,16 +1,14 @@
 <?php
 /**
- * neutral functions and definitions.
- *
- *
+ * emilyhawkes functions and definitions.
  */
 
  /**
   * Enqueues scripts and styles for front-end.
   *
-  * @since neutral 0.1
+  * @since emilyhawkes 0.1
   */
- function neutral_scripts_styles()
+ function emilyhawkes_scripts_styles()
  {
  	// Loads our main stylesheet
  	wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/main.css', false, '1.0', 'screen');
@@ -21,13 +19,13 @@
  	// JS PRINCIPAL APP-dist.JS
  	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/assets/js/app-dist.js', array( 'jquery' ), '1', true );
  }
- add_action( 'wp_enqueue_scripts', 'neutral_scripts_styles' );
+ add_action( 'wp_enqueue_scripts', 'emilyhawkes_scripts_styles' );
 
 
 /**
  * Sets up theme defaults (called every time)
  */
-function neutral_setup()
+function emilyhawkes_setup()
 {
 	// This theme uses wp_nav_menu() in two location.
 	register_nav_menu( 'primary', 'Menu principal' );
@@ -37,14 +35,14 @@ function neutral_setup()
 	// 1. Resize Image
 	// add_image_size( 'vignette-photo', 640, 400, true );
 }
-add_action( 'after_setup_theme', 'neutral_setup' );
+add_action( 'after_setup_theme', 'emilyhawkes_setup' );
 
 
 /**
  * Register our sidebars and widgetized areas.
  *
  */
-function neutral_widgets_init() {
+function emilyhawkes_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'Pied de page',
 		'id'            => 'footer_widget_1',
@@ -52,7 +50,7 @@ function neutral_widgets_init() {
 		'after_widget'  => '</div>',
 	) );
 }
-add_action( 'widgets_init', 'neutral_widgets_init' );
+add_action( 'widgets_init', 'emilyhawkes_widgets_init' );
 
 /**
  * Remove EMOJI Script
