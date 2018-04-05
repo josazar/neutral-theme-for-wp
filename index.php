@@ -9,7 +9,7 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage emilyhawkes
+ * @subpackage neutral
  */
 ?>
 <?php get_header(); ?>

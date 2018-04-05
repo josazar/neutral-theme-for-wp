@@ -3,8 +3,8 @@
  * The Header for our theme.
  *
  * @package WordPress
- * @subpackage emilyhawkes
- * @since emilyhawkes 0.1
+ * @subpackage neutral
+ * @since neutral 0.1
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
