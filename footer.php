@@ -2,6 +2,7 @@
 /**
  * The template for displaying the footer.
  *
+* @package neutral
  */
 ?>
 	<footer class="footer">

@@ -2,9 +2,7 @@
 /**
  * The Header for our theme.
  *
- * @package WordPress
- * @subpackage neutral
- * @since neutral 0.1
+ * @package neutral
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>

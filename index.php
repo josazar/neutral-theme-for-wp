@@ -8,12 +8,17 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage neutral
+ * @package neutral
  */
 ?>
 <?php get_header(); ?>
-	<?php while ( have_posts() ) : the_post(); ?>
-		<?php get_template_part( 'content', get_post_format() ); ?>
-	<?php endwhile; ?>
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'content', get_post_format() ); ?>
+			<?php endwhile; ?>
+		</main>
+	</div>
+
 <?php get_footer(); ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying posts within the loop.
+ * The template used for displaying page content in page.php
  *
  * @package neutral
  */
@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 
 		<header class="entry-header">
@@ -16,13 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</header><!-- .entry-header -->
 
 		<div class="entry-content" itemprop="text">
-				<?php
-				the_content();
+			<?php
+			the_content();
 
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'neutral' ),
-					'after'  => '</div>',
-				) );
-				?>
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages :', 'neutral' ),
+				'after'  => '</div>',
+			) );
+			?>
 		</div><!-- .entry-content -->
+
 </article><!-- #post-## -->
