@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
+<div class="wrapper">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
@@ -27,6 +28,6 @@ get_header(); ?>
 				</div><!-- .entry-content -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
+</div><!-- .wrapper -->
 	<?php
 get_footer();

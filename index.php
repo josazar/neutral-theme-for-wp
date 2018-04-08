@@ -13,12 +13,15 @@
 ?>
 <?php get_header(); ?>
 
+<div class="wrapper">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php
+				get_template_part( 'template-parts/content', get_post_type() );
+				?>
 			<?php endwhile; ?>
 		</main>
 	</div>
-
+</div><!-- .wrapper -->
 <?php get_footer(); ?>

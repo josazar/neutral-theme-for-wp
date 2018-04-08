@@ -1,7 +1,14 @@
 <?php
 /**
- * neutral functions and definitions.
+ * Neutral functions and definitions.
+ * 
+ * Inspired by https://underscore.me 
+ * 
+ * @package neutral
  */
+
+
+
 
  /**
   * Enqueues scripts and styles for front-end.
@@ -27,10 +34,44 @@
  */
 function neutral_setup()
 {
-	// This theme uses wp_nav_menu() in two location.
-	register_nav_menu( 'primary', 'Menu principal' );
+	/*
+	* Make theme available for translation.
+	* Translations can be filed in the /languages/ directory.
+	* If you're building a theme based on neutral, use a find and replace
+	* to change 'neutral' to the name of your theme in all the template files.
+	*/
+	load_theme_textdomain( 'neutral', get_template_directory() . '/languages' );
+
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+
+	/*
+		* Let WordPress manage the document title.
+		* By adding theme support, we declare that this theme does not use a
+		* hard-coded <title> tag in the document head, and expect WordPress to
+		* provide it for us.
+		*/
+	add_theme_support( 'title-tag' );
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'menu-1' => esc_html__( 'Primary', 'neutral' ),
+	) );
+
 	// Image à la une
 	add_theme_support( 'post-thumbnails' );
+
+	/**
+	 * Add support for core custom logo.
+	 *
+	 * @link https://codex.wordpress.org/Theme_Logo
+	 */
+	add_theme_support( 'custom-logo', array(
+		'height'      => 250,
+		'width'       => 250,
+		'flex-width'  => true,
+		'flex-height' => true,
+	) );
 
 	// 1. Resize Image
 	// add_image_size( 'vignette-photo', 640, 400, true );
@@ -43,14 +84,63 @@ add_action( 'after_setup_theme', 'neutral_setup' );
  *
  */
 function neutral_widgets_init() {
+	// Widget de la sidebar
 	register_sidebar( array(
-		'name'          => 'Pied de page',
-		'id'            => 'footer_widget_1',
-		'before_widget' => '<div>',
-		'after_widget'  => '</div>',
+		'name'          => __( 'Sidebar', 'neutral' ),
+		'id'            => 'sidebar-1',
+		'description'   => __( 'Ajoutez ici les widgets de la colonne de droite.', 'neutral' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
 	) );
+
+	// Pied de page
+	register_sidebar( array(
+		'name'          => 'Pied de page 1',
+		'id'            => 'sidebar-2',
+		'description'   => __( 'Ajoutez ici les widgets du pied de page.', 'neutral' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s"',
+		'after_widget'  => '</section>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Pied de page 2',
+		'id'            => 'sidebar-3',
+		'description'   => __( 'Ajoutez ici les widgets du pied de page.', 'neutral' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s"',
+		'after_widget'  => '</section>',
+	) );
+
+
 }
 add_action( 'widgets_init', 'neutral_widgets_init' );
+
+
+
+/**
+ * Replaces "[...]" (appended to automatically generated excerpts) with ... and
+ * a 'Continue reading' link.
+ *
+ * @since Twenty Seventeen 1.0
+ *
+ * @param string $link Link to single post/page.
+ * @return string 'Continue reading' link prepended with an ellipsis.
+ */
+function neutral_excerpt_more( $link ) {
+	if ( is_admin() ) {
+		return $link;
+	}
+
+	$link = sprintf(
+		'<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
+		esc_url( get_permalink( get_the_ID() ) ),
+		/* translators: %s: Name of current post */
+		sprintf( __( 'Lire plus<span class="screen-reader-text"> "%s"</span>', 'neutral' ), get_the_title( get_the_ID() ) )
+	);
+	return ' &hellip; ' . $link;
+}
+add_filter( 'excerpt_more', 'neutral_excerpt_more' );
+
 
 /**
  * Remove EMOJI Script
@@ -59,3 +149,10 @@ add_action( 'widgets_init', 'neutral_widgets_init' );
  remove_action('admin_print_scripts', 'print_emoji_detection_script');
  remove_action('wp_print_styles', 'print_emoji_styles');
  remove_action('admin_print_styles', 'print_emoji_styles');
+
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
