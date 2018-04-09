@@ -36,21 +36,12 @@ function neutral_setup()
 {
 	/*
 	* Make theme available for translation.
-	* Translations can be filed in the /languages/ directory.
-	* If you're building a theme based on neutral, use a find and replace
-	* to change 'neutral' to the name of your theme in all the template files.
 	*/
 	load_theme_textdomain( 'neutral', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	/*
-		* Let WordPress manage the document title.
-		* By adding theme support, we declare that this theme does not use a
-		* hard-coded <title> tag in the document head, and expect WordPress to
-		* provide it for us.
-		*/
 	add_theme_support( 'title-tag' );
 
 	// This theme uses wp_nav_menu() in one location.
@@ -60,12 +51,7 @@ function neutral_setup()
 
 	// Image à la une
 	add_theme_support( 'post-thumbnails' );
-
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
+	
 	add_theme_support( 'custom-logo', array(
 		'height'      => 250,
 		'width'       => 250,
@@ -100,14 +86,14 @@ function neutral_widgets_init() {
 		'name'          => 'Pied de page 1',
 		'id'            => 'sidebar-2',
 		'description'   => __( 'Ajoutez ici les widgets du pied de page.', 'neutral' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s"',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 	) );
 	register_sidebar( array(
 		'name'          => 'Pied de page 2',
 		'id'            => 'sidebar-3',
 		'description'   => __( 'Ajoutez ici les widgets du pied de page.', 'neutral' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s"',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 	) );
 
@@ -120,17 +106,12 @@ add_action( 'widgets_init', 'neutral_widgets_init' );
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
  * a 'Continue reading' link.
- *
- * @since Twenty Seventeen 1.0
- *
- * @param string $link Link to single post/page.
- * @return string 'Continue reading' link prepended with an ellipsis.
+ * 
  */
 function neutral_excerpt_more( $link ) {
 	if ( is_admin() ) {
 		return $link;
 	}
-
 	$link = sprintf(
 		'<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
 		esc_url( get_permalink( get_the_ID() ) ),
@@ -155,4 +136,3 @@ add_filter( 'excerpt_more', 'neutral_excerpt_more' );
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
-
