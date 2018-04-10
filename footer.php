@@ -5,7 +5,8 @@
 * @package neutral
  */
 ?>
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer wrapper" role="contentinfo">
+		<div class="clear_column"></div>	
 		<?php
 		if ( is_active_sidebar( 'sidebar-2' ) ||
 			is_active_sidebar( 'sidebar-3' ) ) :
@@ -15,14 +16,14 @@
 			<?php
 			if ( is_active_sidebar( 'sidebar-2' ) ) {
 			?>
-				<div class="widget-column footer-widget-1">
+				<div class="widget-column footer-widget-1 one_half">
 					<?php dynamic_sidebar( 'sidebar-2' ); ?>
 				</div>
 			<?php
 			}
 			if ( is_active_sidebar( 'sidebar-3' ) ) {
 			?>
-				<div class="widget-column footer-widget-2">
+				<div class="widget-column footer-widget-2 one_half">
 					<?php dynamic_sidebar( 'sidebar-3' ); ?>
 				</div>
 			<?php } ?>

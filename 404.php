@@ -21,8 +21,9 @@ get_header(); ?>
 
 				<div class="entry-content" itemprop="text">
 					<?php
-					echo '<p>404</p>'; // WPCS: XSS OK.
-
+					echo '<p>';
+					_e( 'Essayez une recherche :', 'neutral' );
+					echo '</p>'; // WPCS: XSS OK.
 					get_search_form();
 					?>
 				</div><!-- .entry-content -->

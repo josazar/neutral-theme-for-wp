@@ -102,7 +102,19 @@ function neutral_widgets_init() {
 add_action( 'widgets_init', 'neutral_widgets_init' );
 
 
-
+/**
+ * Ajout de la class has-sidebar dnas le body si le template à une sidebar
+ * 
+ */
+function neutral_has_sidebar($classes) {
+	// Add class if sidebar is used.
+	if ( is_active_sidebar( 'sidebar-1' ) && ! is_page() ) {
+		$classes[] = 'has-sidebar';
+	}
+    // return the $classes array
+    return $classes;
+}
+add_filter('body_class','neutral_has_sidebar');
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
  * a 'Continue reading' link.
