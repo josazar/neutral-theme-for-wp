@@ -36,18 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="entry-content" itemprop="text">
 		<?php
 		if (is_singular()) :
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'underscore' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+			the_content();
 		else : 
 			the_excerpt();
 		endif;
