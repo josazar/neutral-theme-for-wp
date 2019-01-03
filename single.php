@@ -12,32 +12,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header(); ?>
 
 <div class="wrapper">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-			<?php
+	<main id="primary" class="site-main">
+		<?php
 
-			while ( have_posts() ) : the_post();
+		while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', get_post_type() );
+			get_template_part( 'template-parts/content', get_post_type() );
 
-				
-				// the_post_navigation();
+			
+			// the_post_navigation();
 
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || '0' != get_comments_number() ) : ?>
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || '0' != get_comments_number() ) : ?>
 
-					<div class="comments-area">
-						<?php comments_template(); ?>
-					</div>
+				<div class="comments-area">
+					<?php comments_template(); ?>
+				</div>
 
-				<?php endif;
+			<?php endif;
 
-			endwhile;
-			?>
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+		endwhile;
+		?>
+	</main><!-- #main -->
 	<?php get_sidebar(); ?>
 </div><!-- .wrapper -->
 <?php

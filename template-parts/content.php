@@ -31,8 +31,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php neutral_post_thumbnail(); ?>
-
 	<div class="entry-content" itemprop="text">
 		<?php
 		if (is_singular()) :

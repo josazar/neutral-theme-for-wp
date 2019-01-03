@@ -9,17 +9,18 @@ LAYOUT
 1 Header
 2 Regular Content
 3 Sidebar
-4 Posts
-5 Pages
-6 Footer
+4 Posts & Pages
+5 Footer
+6 Medias
 ----------------------------------------------------------------*/
 // 0 General
 body {
 	color: @main_color;
 	background-color: @bg_color;
+	overflow-x :hidden; // Fix le wide alignment de Gutenberg
 }
 .wrapper {
-	max-width: 1024px;
+	max-width: 768px;
 	margin: 0 auto;
 }
 
@@ -27,12 +28,15 @@ body {
 .custom-logo-link {
 	float:left;
 }
+.site-branding {
+	text-align: center;
+}
 
 // 2 Regular Content
-.content-area {
+.site-main {
 	width:100%;
 }
-.has-sidebar .content-area {
+.has-sidebar .site-main {
 	.two_third;
 	padding-right:40px;
 }
@@ -42,14 +46,143 @@ body {
 	.one_third;
 }
 
-// 4 Posts
+// 4 Posts and Pages
 .single .post-thumbnail img,
 .page .post-thumbnail img {
 	width:100%;
 }
 
-// 5 Pages
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1.5em 0 0;
+}
 
-// 6 Footer
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+
+.entry-header,
+.page-header,
+.entry-footer,
+.site-info,
+.post-navigation,
+.page-navigation,
+.comments-area,
+.not-found .page-content,
+.search .entry-summary {
+  margin: 1.5em auto;
+  padding-left: 14px;
+  padding-right: 14px;
+  max-width: 100%;
+}
+
+.entry-header .wp-post-image {
+  margin-bottom: 1.5em;
+}
+
+.entry-footer span{
+  margin-right: 1em;
+}
+
+.entry-footer{
+  color: #aaa;
+  font-size: 90%;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #111;
+}
+
+@media screen and (min-width: 664px) {
+  .entry-header,
+  .page-header,
+  .entry-footer,
+  .site-info,
+  .post-navigation,
+  .page-navigation,
+  .comments-area,
+  .not-found .page-content,
+  .search .entry-summary {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+// 5 Footer
 .site-footer {
 }
+
+
+// 6 Media
+
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+  display: inline-block;
+}
+
+
+// 7 Galleries
+.gallery {
+	margin-bottom: 1.5em;
+  }
+  
+  .gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+  }
+  
+  .gallery-columns-2 .gallery-item {
+	max-width: 50%;
+  }
+  
+  .gallery-columns-3 .gallery-item {
+	max-width: 33.3333333333%;
+  }
+  
+  .gallery-columns-4 .gallery-item {
+	max-width: 25%;
+  }
+  
+  .gallery-columns-5 .gallery-item {
+	max-width: 20%;
+  }
+  
+  .gallery-columns-6 .gallery-item {
+	max-width: 16.6666666667%;
+  }
+  
+  .gallery-columns-7 .gallery-item {
+	max-width: 14.2857142857%;
+  }
+  
+  .gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+  }
+  
+  .gallery-columns-9 .gallery-item {
+	max-width: 11.1111111111%;
+  }
+  
+  .gallery-caption {
+	display: block;
+  }
+  

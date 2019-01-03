@@ -1,4 +1,3 @@
-var j = jQuery.noConflict();
 /**
  * Script affichant les élements avec animation keyframe uniquement lorsqu'ils sont visible à l'écran
  */

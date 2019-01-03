@@ -44,6 +44,12 @@ function neutral_setup()
 
 	add_theme_support( 'title-tag' );
 
+	// Adding support for core block visual styles.
+	add_theme_support( 'wp-block-styles' );
+
+	// Add support for responsive embeds.
+	add_theme_support( 'responsive-embeds' );
+	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'neutral' ),
@@ -51,6 +57,9 @@ function neutral_setup()
 
 	// Image à la une
 	add_theme_support( 'post-thumbnails' );
+
+	// Wide alignment feature
+	add_theme_support( 'align-wide' );
 	
 	add_theme_support( 'custom-logo', array(
 		'height'      => 250,
@@ -58,9 +67,6 @@ function neutral_setup()
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
-
-	// 1. Resize Image
-	// add_image_size( 'vignette-photo', 640, 400, true );
 }
 add_action( 'after_setup_theme', 'neutral_setup' );
 
@@ -84,20 +90,25 @@ function neutral_widgets_init() {
 	// Pied de page
 	register_sidebar( array(
 		'name'          => 'Pied de page 1',
-		'id'            => 'sidebar-2',
+		'id'            => 'footer-1',
 		'description'   => __( 'Ajoutez ici les widgets du pied de page.', 'neutral' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 	) );
 	register_sidebar( array(
 		'name'          => 'Pied de page 2',
-		'id'            => 'sidebar-3',
+		'id'            => 'footer-2',
 		'description'   => __( 'Ajoutez ici les widgets du pied de page.', 'neutral' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 	) );
-
-
+	register_sidebar( array(
+		'name'          => 'Pied de page 3',
+		'id'            => 'footer-3',
+		'description'   => __( 'Ajoutez ici les widgets du pied de page.', 'neutral' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+	) );
 }
 add_action( 'widgets_init', 'neutral_widgets_init' );
 
